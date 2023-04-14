@@ -20,6 +20,17 @@ app.get("/alunos/", (req, res) => {
     res.json(resultadoAlunos);
 })
 
+app.post("/alunos/novo", (req, res) => {
+    const { nome, matricula, media } = req.body; 
+
+    if(!nome || !matricula || !media) {
+        res.status(400).json({ error: "Dados incompletos"})
+    } else {
+        res.json({message: "Aluno adicionado com sucesso"});
+    }
+})
+
+
 app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000");
 });
