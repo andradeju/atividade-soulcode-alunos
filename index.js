@@ -41,6 +41,20 @@ app.post("/alunos/deletar/:index", (req, res) => {
     }
 });
 
+app.post("/alunos/atualizar/:index", (req, res) => {
+    const { index } = req.params;
+    const { nome, media } = req.body;
+
+    if(index < 0 || index >= alunos.alunos.length) {
+        res.status(404).send({ error: "Aluno não encontrado"})
+    } else if (!nome || !media) {
+        res.status(404).send({ erro: "Dados incompletos"})
+    } else {
+        alunos.alunos[index].nome = nome;
+        alunos.alunos[index].media = media;
+        res.json({ message: "Aluno atualizado com sucesso"})
+    }
+})
 
 app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000");
