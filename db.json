@@ -1,0 +1,26 @@
+{
+  "alunos": {
+    "alunos": [
+      {
+        "nome": "Adele",
+        "matricula": 1,
+        "media": 8
+      },
+      {
+        "nome": "Beyonce",
+        "matricula": 2,
+        "media": 10
+      },
+      {
+        "nome": "Lady Gaga",
+        "matricula": 3,
+        "media": 9
+      },
+      {
+        "nome": "Rihanna",
+        "matricula": 5,
+        "media": 8
+      }
+    ]
+  }
+}
