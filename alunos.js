@@ -26,7 +26,6 @@ const alunos = [
     }
 ];
 
-
 function filtrarNome(nome){
     return alunos.filter((el) => 
     el.nome.toLowerCase().includes(nome.toLowerCase()));

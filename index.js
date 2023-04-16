@@ -1,14 +1,13 @@
 const express = require("express");
 const app = express();
 const alunos = require("./alunos");
-const fs = require ('fs');
+const fs = require ("fs");
 
 app.use(express.json());
 
 app.get("/alunos/", (req, res) => {
 
     let resultadoAlunos = alunos;
-
     const { nome, media } = req.query;
 
     if(nome) {
@@ -17,21 +16,18 @@ app.get("/alunos/", (req, res) => {
     if(media) {
         resultadoAlunos = resultadoAlunos.filtrarMedia (media);
     }
-
     res.json(resultadoAlunos);
 })
 
 function atualizarAlunos() {
-    const data = JSON.stringify({  alunos }, null, 2 );
+    const data = JSON.stringify({ alunos }, null, 2 );
 
     try {
         fs.writeFileSync("./db.json", data);
         console.log("Arquivo db.json atualizado com sucesso");
-
     } catch (error) {
         console.log("Erro ao atualizar o arquivo:", error);
     }
-
 }
 
 app.post("/alunos/novo", (req, res) => {
